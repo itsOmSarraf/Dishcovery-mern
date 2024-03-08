@@ -1,14 +1,22 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { ModeToggle } from './mode-toggle';
-
+import logo from '../assets/logo.svg';
+import { NavLink } from 'react-router-dom';
 export default function Navbar() {
 	return (
 		<div className='w-full'>
-			<div className='flex justify-between w-full p-2 mx-auto'>
-				<Avatar>
-					<AvatarImage src='https://avatars.githubusercontent.com/u/124599?v=4' />
-					<AvatarFallback>CN</AvatarFallback>
-				</Avatar>
+			<div className='flex justify-between items-center w-full p-2 mx-auto shadow-2xl border-b-2 border-gray-800'>
+				<div className='flex items-center'>
+					<img
+						src={logo}
+						alt='logo'
+						className='w-10 h-10'
+					/>
+					<NavLink
+						to='/home'
+						className='text-2xl font-bold ml-2'>
+						DishCovery
+					</NavLink>
+				</div>
 				<ModeToggle />
 			</div>
 		</div>

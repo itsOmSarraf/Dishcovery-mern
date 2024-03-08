@@ -21,7 +21,7 @@ async function run() {
 	const model = genAI.getGenerativeModel({ model: 'gemini-pro-vision' });
 
 	const prompt =
-		'suggest me a recipe for south-indian dish with these ingredients in a json object format and keep the measuring terms in grams/kilograms, tablespoons literes/milliliters , the object format shall be { recipe:"",ingredients:[{name:,quantity:},{name:,quantity:}],instructions:[{step:},{step:}]}';
+		'suggest me a recipe for south-indian dish with these ingredients in a json object format and keep the measuring terms in grams/kilograms, tablespoons literes/milliliters , the object format shall be { recipe:"",one_liner:"",approx_cooking_time:"mins/hrs",approx_calroies:"",serving:"",ingredients:[{name:,quantity:},{name:,quantity:}],instructions:[{step:},{step:}]}';
 	const imageParts = [
 		fileToGenerativePart('sample_images/image.jpg', 'image/jpeg')
 	];
