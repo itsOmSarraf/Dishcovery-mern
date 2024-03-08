@@ -3,12 +3,17 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppRoutes from './Routes';
+import { ThemeProvider } from '@/components/theme-provider';
 
 function App() {
 	return (
-		<Router>
-			<AppRoutes />
-		</Router>
+		<ThemeProvider
+			defaultTheme='dark'
+			storageKey='vite-ui-theme'>
+			<Router>
+				<AppRoutes />
+			</Router>
+		</ThemeProvider>
 	);
 }
 
