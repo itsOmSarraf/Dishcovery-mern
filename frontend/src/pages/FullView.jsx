@@ -11,6 +11,7 @@ import {
 	CardHeader,
 	CardTitle
 } from '@/components/ui/card';
+import image from '../../../sample_images/response_image.png';
 import { Badge } from '@/components/ui/badge';
 import { IngredientsDrawer } from '@/components/to-do-ingredients';
 export default function FullView() {
@@ -19,9 +20,23 @@ export default function FullView() {
 			<Navbar />
 			<div className='flex flex-col items-center py-5'>
 				<Card className='w-[350px] m-2'>
-					<CardHeader>
-						<CardTitle className='text-2xl'>Recipe Name</CardTitle>
-						<CardDescription>One liner of the dish</CardDescription>
+					<CardHeader className='flex-row justify-between gap-2'>
+						<div className='flex flex-row md:flex-row gap-4 items-center md:items-start'>
+							<div className='flex-1'>
+								<div className='text-2xl mb-2'>Recipe Name</div>
+								<p>
+									Aloo Posto is a Bengali vegetarian dish made with potatoes and
+									poppy seeds.
+								</p>
+							</div>
+							<div className='flex-shrink-0'>
+								<img
+									src={image}
+									alt='recipe'
+									className='w-[150px] h-[150px] md:w-auto'
+								/>
+							</div>
+						</div>
 					</CardHeader>
 					<CardContent>
 						<div className='mb-5'>
