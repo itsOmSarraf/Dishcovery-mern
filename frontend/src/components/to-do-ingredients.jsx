@@ -21,6 +21,7 @@ const ingredients = [
 	{ id: 'mustard_oil', label: 'Mustard Oil (2 tablespoons)' },
 	{ id: 'salt', label: 'Salt (to taste)' }
 ];
+import { BookOpenText } from 'lucide-react';
 
 export function IngredientsDrawer() {
 	return (
@@ -31,6 +32,7 @@ export function IngredientsDrawer() {
 					variant='outline'
 					className='bg-[#f5e5cd] text-black'>
 					Ingredients
+					<BookOpenText className='ml-2 h-3 w-3' />
 				</Button>
 			</DrawerTrigger>
 			<DrawerContent>

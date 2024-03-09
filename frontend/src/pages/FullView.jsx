@@ -14,6 +14,7 @@ import {
 import image from '../../../sample_images/response_image.png';
 import { Badge } from '@/components/ui/badge';
 import { IngredientsDrawer } from '@/components/to-do-ingredients';
+
 export default function FullView() {
 	return (
 		<>

@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import SplashScreen from './pages/Splashscreen';
 import Home from './pages/Home';
 import Full from './pages/FullView';
-// import About from './pages/About';
+import UploadView from './pages/UploadView';
 
 function AppRoutes() {
 	return (
@@ -22,11 +22,10 @@ function AppRoutes() {
 				path='/full'
 				element={<Full />}
 			/>
-			//{' '}
-			{/* <Route
-			// 	path='/about'
-			// 	element={<About />}
-			// /> */}
+			<Route
+				path='/upload'
+				element={<UploadView />}
+			/>
 		</Routes>
 	);
 }

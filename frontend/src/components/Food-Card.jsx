@@ -14,6 +14,7 @@ import {
 import image from '../../../sample_images/response_image.png';
 import { Badge } from '@/components/ui/badge';
 import { NavLink } from 'react-router-dom';
+import { CookingPot } from 'lucide-react';
 export function CardWithForm() {
 	return (
 		<Card className='w-[300px] m-2'>
@@ -50,7 +51,8 @@ export function CardWithForm() {
 					<HeartIcon className='ml-2 h-4 w-4' />
 				</Button>
 				<Button>
-					<NavLink to='/full'>View</NavLink>
+					<NavLink to='/full'>Cook</NavLink>
+					<CookingPot className='ml-2 h-4 w-4' />
 				</Button>
 			</CardFooter>
 		</Card>
