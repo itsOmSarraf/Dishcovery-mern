@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { HeartIcon } from 'lucide-react';
-import { Timer } from 'lucide-react';
+import { TimerIcon } from '@radix-ui/react-icons';
+
 import { Button } from '@/components/ui/button';
 import {
 	Card,
@@ -10,21 +11,36 @@ import {
 	CardHeader,
 	CardTitle
 } from '@/components/ui/card';
+import image from '../../../sample_images/response_image.png';
 import { Badge } from '@/components/ui/badge';
 import { NavLink } from 'react-router-dom';
 export function CardWithForm() {
 	return (
 		<Card className='w-[300px] m-2'>
 			<CardHeader>
-				<CardTitle>Recipe Name</CardTitle>
-				<CardDescription>One liner of the dish</CardDescription>
+				<div className='flex flex-row md:flex-row gap-4 items-center md:items-start'>
+					<div className='flex-1'>
+						<CardTitle className='mb-2'>Recipe Name</CardTitle>
+						<CardDescription>
+							Aloo Posto is a Bengali vegetarian dish made with potatoes and
+							poppy seeds.
+						</CardDescription>
+					</div>
+					<div className='flex-shrink-0'>
+						<img
+							src={image}
+							alt='recipe'
+							className='rounded-md w-[100px] h-[100px] md:w-auto'
+						/>
+					</div>
+				</div>
 			</CardHeader>
 			<CardContent>
 				<Badge variant='secondary'>Veg</Badge>
 				<Badge variant='secondary'>Snacks</Badge>
 				<Badge variant='secondary'>
-					<Timer className='h-3 w-3 mr-1' />
-					Time
+					<TimerIcon className='h-2 w-2 mr-1 p-0 m-0' />
+					30 mins
 				</Badge>
 				<Badge variant='secondary'>Indian</Badge>
 			</CardContent>

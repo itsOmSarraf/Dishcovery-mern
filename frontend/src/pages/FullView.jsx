@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar';
 import * as React from 'react';
 import { HeartIcon } from 'lucide-react';
-import { Timer } from 'lucide-react';
+import { TimerIcon } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/button';
 import {
 	Card,
@@ -43,7 +43,7 @@ export default function FullView() {
 							<Badge variant='secondary'>Veg</Badge>
 							<Badge variant='secondary'>Snacks</Badge>
 							<Badge variant='secondary'>
-								<Timer className='h-3 w-3 mr-1' />
+								<TimerIcon className='h-2 w-2 mr-1' />
 								30 mins
 							</Badge>
 							<Badge variant='secondary'>Indian</Badge>
