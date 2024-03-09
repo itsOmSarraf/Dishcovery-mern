@@ -1,5 +1,5 @@
 import { ModeToggle } from './mode-toggle';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo-copy.svg';
 import { NavLink } from 'react-router-dom';
 export default function Navbar() {
 	return (
@@ -9,7 +9,7 @@ export default function Navbar() {
 					<img
 						src={logo}
 						alt='logo'
-						className='w-10 h-10'
+						className='ml-2 w-10 h-10 rounded-full mr-1'
 					/>
 					<NavLink
 						to='/home'

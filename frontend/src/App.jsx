@@ -8,7 +8,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 function App() {
 	return (
 		<ThemeProvider
-			defaultTheme='dark'
+			defaultTheme='light'
 			storageKey='vite-ui-theme'>
 			<Router>
 				<AppRoutes />
