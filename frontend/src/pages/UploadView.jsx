@@ -48,21 +48,31 @@ export default function UploadView() {
 				<Card className='w-full max-w-sm p-4 flex flex-col items-center'>
 					<Form {...form}>
 						<form onSubmit={form.handleSubmit(onSubmit)}>
-							{/* <div className='w-[100px] flex flex-col items-center justify-center bg-[#f5e5cd] text-black shadow hover:bg-[#f5e5cd]/90 px-3 py-1 rounded-md'>
-								<Label
-									htmlFor='picture'
-									className='flex items-center'>
-									<CameraIcon className='w-8 h-8' />
-									<span className='ml-2'>Upload</span>
-								</Label>
-								<Input
-									id='picture'
-									type='file'
-									className='hidden'
-									// something like this
-								/>
-							</div> */}
-							{/* toggle  */}
+							<FormField
+								control={form.control}
+								name='image'
+								render={({ field }) => (
+									<FormItem className='w-[100px] flex flex-col items-center justify-center bg-[#f5e5cd] text-black shadow hover:bg-[#f5e5cd]/90 px-3 py-1 rounded-md'>
+										<FormLabel
+											htmlFor='picture'
+											className='flex items-center'>
+											<CameraIcon className='w-8 h-8' />
+											Upload
+										</FormLabel>
+										<FormControl>
+											<Input
+												id='picture'
+												type='file'
+												className='hidden'
+												accept='image/*'
+												capture='camera'
+												{...field}
+											/>
+										</FormControl>
+									</FormItem>
+								)}
+							/>
+
 							<FormField
 								control={form.control}
 								name='nonveg'
@@ -81,7 +91,7 @@ export default function UploadView() {
 									</FormItem>
 								)}
 							/>
-							{/* type of food */}
+
 							<FormField
 								control={form.control}
 								name='type_food'
