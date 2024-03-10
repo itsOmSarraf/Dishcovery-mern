@@ -22,15 +22,25 @@ import {
 } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
 import { toast } from '@/components/ui/use-toast';
+
 export default function UploadView() {
 	const form = useForm({
 		defaultValues: {
 			nonveg: false,
-			servings: 2
+			servings: 2,
+			image: ''
 		}
 	});
 
 	function onSubmit(data) {
+		const imageFile = data.image[0];
+		// const reader = new FileReader();
+		console.log(imageFile);
+		// reader.onload = () => {
+		// 	const base64String = reader.result.split(',')[1];
+		// 	setFileData(base64String);
+		// };
+		// reader.readAsArrayBuffer(imageFile);
 		console.log(data);
 		toast({
 			title: 'You submitted the following values:',
@@ -64,9 +74,7 @@ export default function UploadView() {
 												id='picture'
 												type='file'
 												className='hidden'
-												accept='image/*'
-												capture='camera'
-												{...field}
+												{...form.register('image')}
 											/>
 										</FormControl>
 									</FormItem>
@@ -163,7 +171,6 @@ export default function UploadView() {
 										<FormControl>
 											<Input
 												type='number'
-												defaultValue='2'
 												className='w-[60px]'
 												{...field}
 											/>
