@@ -5,7 +5,7 @@ const app = express();
 
 app.use(cors());
 
-import healthCheckRoute from './routes/healthcheck.route';
+import healthCheckRoute from './routes/healtcheck.routes.js';
 
 app.use('/api/v1/healthcheck', healthCheckRoute);
 
