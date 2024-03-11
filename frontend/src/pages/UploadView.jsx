@@ -34,13 +34,13 @@ export default function UploadView() {
 
 	function onSubmit(data) {
 		const imageFile = data.image[0];
-		// const reader = new FileReader();
+		const reader = new FileReader();
 		console.log(imageFile);
-		// reader.onload = () => {
-		// 	const base64String = reader.result.split(',')[1];
-		// 	setFileData(base64String);
-		// };
-		// reader.readAsArrayBuffer(imageFile);
+		reader.onload = () => {
+			const base64String = reader.result.split(',')[1];
+			setFileData(base64String);
+		};
+		reader.readAsArrayBuffer(imageFile);
 		console.log(data);
 		toast({
 			title: 'You submitted the following values:',

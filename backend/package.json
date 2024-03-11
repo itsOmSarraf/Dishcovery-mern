@@ -13,6 +13,7 @@
     "@clerk/clerk-react": "^4.30.5",
     "@google/generative-ai": "^0.2.1",
     "cloudinary": "^2.0.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "mongoose": "^8.2.1",
     "mongoose-paginate-v2": "^1.8.0",
