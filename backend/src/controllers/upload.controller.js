@@ -1,0 +1,42 @@
+import mongoose from 'mongoose';
+import Recipe from '../models/recipe.model.js';
+import { ApiError } from '../utils/ApiError.js';
+import { ApiResponse } from '../utils/ApiResponse.js';
+import { asyncHandler } from '../utils/asyncHandler.js';
+import run from '../utils/gemini-vision.js';
+import multer from 'multer';
+
+const getResponse = asyncHandler(async (req, res) => {
+	const { nonVeg, typeFood, timeFood, servings } = req.body;
+	const imageFile = req.file;
+	console.log('formdata', { nonVeg, typeFood, timeFood, servings });
+	console.log('Image data', imageFile);
+
+	try {
+		// Wait for the completion of the run function
+		const responseFromRun = await run(
+			nonVeg,
+			typeFood,
+			timeFood,
+			servings,
+			image
+		);
+
+		// Send the response to the frontend as JSON
+		res
+			.status(200)
+			.json(
+				new ApiResponse(
+					200,
+					{ response: responseFromRun },
+					'Response from run function'
+				)
+			);
+	} catch (error) {
+		// Handle any errors that occurred during the run function
+		console.error('Error in run function:', error);
+		res.status(500).json(new ApiError(500, 'Internal Server Error'));
+	}
+});
+
+export { getResponse };

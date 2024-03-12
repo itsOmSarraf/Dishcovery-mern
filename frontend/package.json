@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^4.30.5",
+    "@cloudinary/react": "^1.13.0",
+    "@cloudinary/url-gen": "^1.19.0",
     "@google/generative-ai": "^0.2.1",
     "@hookform/resolvers": "^3.3.4",
     "@radix-ui/react-avatar": "^1.0.4",
@@ -24,7 +26,9 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-toast": "^1.1.5",
+    "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
+    "cloudinary": "^2.0.3",
     "clsx": "^2.1.0",
     "lucide-react": "^0.350.0",
     "react": "^18.2.0",

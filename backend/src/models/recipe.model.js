@@ -10,7 +10,11 @@ const Recipe = new Schema(
 			type: String,
 			required: true
 		},
-		image: {
+		imageUser: {
+			type: String,
+			required: true
+		},
+		imageHf: {
 			type: String,
 			required: true
 		},
@@ -18,7 +22,7 @@ const Recipe = new Schema(
 			type: String,
 			required: true
 		},
-		approcalories: {
+		approxCalories: {
 			type: String,
 			required: true
 		},
@@ -26,11 +30,11 @@ const Recipe = new Schema(
 			type: String,
 			required: true
 		},
-		type: {
+		typeFood: {
 			type: String,
 			required: true
 		},
-		GeoGraphy: {
+		timeFood: {
 			type: String,
 			required: true
 		},

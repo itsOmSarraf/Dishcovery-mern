@@ -61,7 +61,7 @@ export default function UploadView() {
 							<FormField
 								control={form.control}
 								name='image'
-								render={({ field }) => (
+								render={() => (
 									<FormItem className='w-[100px] flex flex-col items-center justify-center bg-[#f5e5cd] text-black shadow hover:bg-[#f5e5cd]/90 px-3 py-1 rounded-md'>
 										<FormLabel
 											htmlFor='picture'
@@ -71,9 +71,12 @@ export default function UploadView() {
 										</FormLabel>
 										<FormControl>
 											<Input
+												required
 												id='picture'
 												type='file'
 												className='hidden'
+												accept='image/*'
+												capture='camera'
 												{...form.register('image')}
 											/>
 										</FormControl>
@@ -89,6 +92,7 @@ export default function UploadView() {
 										<FormLabel className='mr-2'>Veg</FormLabel>
 										<FormControl>
 											<Switch
+												required
 												className='mx-1'
 												defaultValue='false'
 												checked={field.value}
@@ -106,6 +110,7 @@ export default function UploadView() {
 								render={({ field }) => (
 									<FormItem>
 										<Select
+											required
 											onValueChange={field.onChange}
 											defaultValue={field.value}>
 											<FormControl>
@@ -141,6 +146,7 @@ export default function UploadView() {
 								render={({ field }) => (
 									<FormItem>
 										<Select
+											required
 											onValueChange={field.onChange}
 											defaultValue={field.value}>
 											<FormControl>
@@ -170,6 +176,7 @@ export default function UploadView() {
 										<FormLabel htmlFor='serving'>How many servings?</FormLabel>
 										<FormControl>
 											<Input
+												required
 												type='number'
 												className='w-[60px]'
 												{...field}
