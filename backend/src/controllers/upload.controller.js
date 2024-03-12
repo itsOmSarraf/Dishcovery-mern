@@ -1,14 +1,14 @@
-import mongoose from 'mongoose';
-import Recipe from '../models/recipe.model.js';
+// controllers/upload.controller.js
 import { ApiError } from '../utils/ApiError.js';
 import { ApiResponse } from '../utils/ApiResponse.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
 import run from '../utils/gemini-vision.js';
-import multer from 'multer';
 
 const getResponse = asyncHandler(async (req, res) => {
+	// Extract data from request
 	const { nonVeg, typeFood, timeFood, servings } = req.body;
 	const imageFile = req.file;
+
 	console.log('formdata', { nonVeg, typeFood, timeFood, servings });
 	console.log('Image data', imageFile);
 
@@ -19,7 +19,7 @@ const getResponse = asyncHandler(async (req, res) => {
 			typeFood,
 			timeFood,
 			servings,
-			image
+			imageFile.buffer // Use imageFile.buffer instead of imageFile.path
 		);
 
 		// Send the response to the frontend as JSON

@@ -7,8 +7,8 @@ function onSubmit(data) {
 	// Append form data to the FormData object
 	formData.append('nonVeg', data.nonveg);
 	formData.append('servings', data.servings);
-	formData.append('typeFood', data.type_food);
-	formData.append('timeFood', data.time_food);
+	formData.append('typeFood', data.typeFood);
+	formData.append('timeFood', data.timeFood);
 	// Append the image file
 	formData.append('image', data.image[0]);
 	// Make a POST request using Axios
