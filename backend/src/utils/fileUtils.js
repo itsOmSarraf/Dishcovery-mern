@@ -1,4 +1,3 @@
-// utils/fileUtils.js
 async function fileToGenerativePart(buffer, mimeType) {
 	const base64String = buffer.toString('base64');
 	const generativePart = {

@@ -193,6 +193,15 @@ export default function UploadView() {
 						</form>
 					</Form>
 				</Card>
+				{fileData && (
+					<div className='mt-4'>
+						<img
+							src={`data:image/jpeg;base64,${fileData}`}
+							alt='Uploaded'
+							className='w-6/12 mx-auto rounded-md shadow-md'
+						/>
+					</div>
+				)}
 			</div>
 		</>
 	);

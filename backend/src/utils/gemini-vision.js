@@ -1,4 +1,3 @@
-// utils/gemini-vision.js
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import dotenv from 'dotenv';
 import { fileToGenerativePart } from './fileUtils.js'; // Importing the fileToGenerativePart function
