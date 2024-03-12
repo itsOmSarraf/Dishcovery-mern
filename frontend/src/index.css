@@ -56,3 +56,56 @@
 		@apply bg-background text-foreground;
 	}
 }
+@keyframes scale {
+	0%,
+	40%,
+	100% {
+		transform: scaleY(0.05);
+	}
+
+	20% {
+		transform: scaleY(1);
+	}
+}
+
+.loading-span {
+	width: 4px;
+	height: 50px;
+	animation: scale 0.9s ease-in-out infinite;
+	font-weight: bold;
+}
+
+.loading-span-second {
+	animation-delay: -0.8s;
+}
+
+.loading-span-third {
+	animation-delay: -0.7s;
+}
+
+.loading-span-fourth {
+	animation-delay: -0.6s;
+}
+
+.loading-span-fifth {
+	animation-delay: -0.5s;
+}
+.loading-span:nth-child(1) {
+	background: #4285f4; /* Google Blue */
+}
+
+.loading-span:nth-child(2) {
+	background: #34a853; /* Google Green */
+}
+
+.loading-span:nth-child(3) {
+	background: #fbbc05; /* Google Yellow */
+}
+
+.loading-span:nth-child(4) {
+	background: #ea4335; /* Google Red */
+}
+
+.loading-span:nth-child(5) {
+	background: #2196f3; /* Material Blue */
+}
