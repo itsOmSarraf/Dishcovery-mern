@@ -21,8 +21,9 @@ import {
 	FormLabel
 } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
-import { toast } from '@/components/ui/use-toast';
 import { useState } from 'react';
+import { useToast } from '@/components/ui/use-toast';
+
 export default function UploadView() {
 	const form = useForm({
 		defaultValues: {
@@ -51,6 +52,7 @@ export default function UploadView() {
 			)
 		});
 	}
+	const { toast } = useToast();
 	return (
 		<>
 			<Navbar />
@@ -203,6 +205,15 @@ export default function UploadView() {
 					</div>
 				)}
 			</div>
+			<Button
+				variant='outline'
+				onClick={() => {
+					toast({
+						description: 'Getting the response soon 🍽️ '
+					});
+				}}>
+				Show Toast
+			</Button>
 		</>
 	);
 }
