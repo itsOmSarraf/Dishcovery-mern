@@ -1,10 +1,11 @@
+// UploadView.jsx
+
 import Navbar from '@/components/Navbar';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { CameraIcon } from 'lucide-react';
+import { CameraIcon, CookingPot } from 'lucide-react';
 import { Switch } from '@/components/ui/switch';
-import { CookingPot } from 'lucide-react';
 import {
 	Select,
 	SelectContent,
@@ -23,6 +24,7 @@ import {
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { useToast } from '@/components/ui/use-toast';
+import axios from 'axios';
 
 export default function UploadView() {
 	const form = useForm({
@@ -33,16 +35,53 @@ export default function UploadView() {
 		}
 	});
 	const [fileData, setFileData] = useState('');
-	function onSubmit(data) {
+	const { toast } = useToast();
+
+	async function onSubmit(data) {
 		const imageFile = data.image[0];
 		const reader = new FileReader();
-		console.log(imageFile);
-		reader.onload = () => {
+
+		reader.onload = async () => {
 			const base64String = reader.result.split(',')[1];
-			setFileData(base64String);
+
+			try {
+				const response = await axios.post(
+					'http://localhost:8000/api/v1/upload/gemini',
+					{
+						imageData: base64String,
+						nonVeg: data.nonveg,
+						servings: data.servings,
+						typeFood: data.type_food,
+						timeFood: data.time_food
+					},
+					{
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					}
+				);
+
+				console.log(response.data);
+				setFileData(base64String);
+
+				toast({
+					title: 'Upload successful',
+					description: 'Image has been successfully uploaded to Gemini.'
+				});
+			} catch (error) {
+				console.error('Error uploading image to Gemini:', error);
+
+				toast({
+					title: 'Upload failed',
+					description:
+						'There was an error uploading the image. Please try again.',
+					status: 'error'
+				});
+			}
 		};
+
 		reader.readAsDataURL(imageFile);
-		console.log(data);
+
 		toast({
 			title: 'You submitted the following values:',
 			description: (
@@ -52,7 +91,7 @@ export default function UploadView() {
 			)
 		});
 	}
-	const { toast } = useToast();
+
 	return (
 		<>
 			<Navbar />
@@ -205,15 +244,6 @@ export default function UploadView() {
 					</div>
 				)}
 			</div>
-			<Button
-				variant='outline'
-				onClick={() => {
-					toast({
-						description: 'Getting the response soon 🍽️ '
-					});
-				}}>
-				Show Toast
-			</Button>
 		</>
 	);
 }

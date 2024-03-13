@@ -5,11 +5,11 @@ import run from '../utils/gemini-vision.js';
 
 const getResponse = asyncHandler(async (req, res) => {
 	// Extract data from request
-	const { nonVeg, typeFood, timeFood, servings } = req.body;
-	const imageFile = req.file;
+	const { nonVeg, typeFood, timeFood, servings, imageData } = req.body;
+	// const imageFile = req.file;
 
 	console.log('formdata', { nonVeg, typeFood, timeFood, servings });
-	console.log('Image data', imageFile);
+	console.log('Image data', imageData);
 
 	try {
 		// Wait for the completion of the run function
@@ -18,7 +18,7 @@ const getResponse = asyncHandler(async (req, res) => {
 			typeFood,
 			timeFood,
 			servings,
-			imageFile.buffer // Use imageFile.buffer instead of imageFile.path
+			imageData // Use imageFile.buffer and convert to base64
 		);
 
 		// Send the response to the frontend as JSON
