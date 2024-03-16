@@ -4,8 +4,14 @@ import bodyParser from 'body-parser';
 const app = express();
 
 app.use(cors());
+const jsonParser = bodyParser.json({ limit: '10mb' });
+const urlencodedParser = bodyParser.urlencoded({
+	limit: '10mb',
+	extended: true
+});
 app.use(express.json());
-app.use(bodyParser.json({ limit: '5mb' }));
+app.use(jsonParser);
+app.use(urlencodedParser);
 // app.use(express.json({ limit: '100mb' }));
 // app.use(express.raw({ limit: '100mb', type: 'image/*' }));
 

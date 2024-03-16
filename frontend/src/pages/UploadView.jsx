@@ -1,5 +1,4 @@
-// UploadView.jsx
-
+import imageCompression from 'browser-image-compression';
 import Navbar from '@/components/Navbar';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -39,12 +38,23 @@ export default function UploadView() {
 
 	async function onSubmit(data) {
 		const imageFile = data.image[0];
+		const options = {
+			maxSizeMB: 0.01, // (max file size in MB)
+			maxWidthOrHeight: 1200, // (max width or height in pixels)
+			useWebWorker: true,
+			quality: 0.6
+		};
 		const reader = new FileReader();
 
 		reader.onload = async () => {
 			const base64String = reader.result.split(',')[1];
 
 			try {
+				const compressedFile = await imageCompression(imageFile, options);
+
+				// Read the compressed image as a base64 string
+				const base64String = await readBase64(compressedFile);
+
 				const response = await axios.post(
 					'http://localhost:8000/api/v1/upload/gemini',
 					{
@@ -90,6 +100,13 @@ export default function UploadView() {
 				</pre>
 			)
 		});
+		const readBase64 = (file) => {
+			return new Promise((resolve) => {
+				const reader = new FileReader();
+				reader.onload = () => resolve(reader.result.split(',')[1]);
+				reader.readAsDataURL(file);
+			});
+		};
 	}
 
 	return (
