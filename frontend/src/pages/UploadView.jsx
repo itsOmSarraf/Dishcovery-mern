@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { CameraIcon, CookingPot } from 'lucide-react';
+import { CameraIcon, CookingPot, Eraser } from 'lucide-react';
 import { Switch } from '@/components/ui/switch';
 import {
 	Select,
@@ -21,6 +21,7 @@ import {
 	FormLabel
 } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
+// import { reset } from 'react-hook-form';
 import { useState } from 'react';
 import { useToast } from '@/components/ui/use-toast';
 import axios from 'axios';
@@ -242,12 +243,20 @@ export default function UploadView() {
 									</FormItem>
 								)}
 							/>
-							<Button
-								type='submit'
-								className='my-3'>
-								Cook
-								<CookingPot className='ml-2 h-4 w-4' />
-							</Button>
+							<div className='flex-1 '>
+								<Button
+									type='submit'
+									className='my-3 mr-4'>
+									Cook
+									<CookingPot className='ml-2 h-4 w-4' />
+								</Button>
+								<Button
+									variant='destructive'
+									onClick={() => window.location.reload()}>
+									Clear Form
+									<Eraser className='ml-2 h-4 w-4' />
+								</Button>
+							</div>
 						</form>
 					</Form>
 				</Card>
