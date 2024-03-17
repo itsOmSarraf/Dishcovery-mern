@@ -2,26 +2,24 @@ import { ApiError } from '../utils/ApiError.js';
 import { ApiResponse } from '../utils/ApiResponse.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
 import run from '../utils/gemini-vision.js';
+import compressImage from '../utils/imageCompressor.js';
 
 const getResponse = asyncHandler(async (req, res) => {
-	// Extract data from request
 	const { nonVeg, typeFood, timeFood, servings, imageData } = req.body;
-	// const imageFile = req.file;
-
 	console.log('formdata', { nonVeg, typeFood, timeFood, servings });
 	console.log('Image data', imageData);
 
 	try {
-		// Wait for the completion of the run function
+		const compressedBase64Image = await compressImage(imageData);
+
 		const responseFromRun = await run(
 			nonVeg,
 			typeFood,
 			timeFood,
 			servings,
-			imageData // Use imageFile.buffer and convert to base64
+			compressedBase64Image
 		);
 
-		// Send the response to the frontend as JSON
 		res
 			.status(200)
 			.json(
@@ -32,7 +30,6 @@ const getResponse = asyncHandler(async (req, res) => {
 				)
 			);
 	} catch (error) {
-		// Handle any errors that occurred during the run function
 		console.error('Error in run function:', error);
 		res.status(500).json(new ApiError(500, 'Internal Server Error'));
 	}

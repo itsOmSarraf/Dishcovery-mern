@@ -134,7 +134,7 @@ export default function UploadView() {
 												type='file'
 												className='hidden'
 												accept='image/*'
-												capture='camera'
+												capture='environment'
 												{...form.register('image')}
 											/>
 										</FormControl>
