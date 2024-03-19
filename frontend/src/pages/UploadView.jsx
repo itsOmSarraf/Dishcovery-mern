@@ -74,14 +74,15 @@ export default function UploadView() {
 					}
 				);
 
-				console.log(response.data);
+				// console.log(response.data);
 				setFileData(base64String);
-				localStorage.setItem('recipeData', JSON.stringify(response.data));
+				localStorage.setItem('recipeData', response.data.data.response);
+				// console.log(response.data.data.response);
 				toast({
 					title: 'Upload successful',
 					description: 'Image has been successfully uploaded to Gemini.'
 				});
-				navigate('/fullview');
+				navigate('/full');
 			} catch (error) {
 				console.error('Error uploading image to Gemini:', error);
 

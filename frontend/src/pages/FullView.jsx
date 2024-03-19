@@ -8,7 +8,15 @@ import { Badge } from '@/components/ui/badge';
 import { IngredientsDrawer } from '@/components/to-do-ingredients';
 
 export default function FullView() {
-	const recipeData = JSON.parse(localStorage.getItem('recipeData'));
+	const recipeData = localStorage.getItem('recipeData');
+	const cleanJSONobj = recipeData
+		? JSON.parse(recipeData.replace(/```json\n|\n```/g, ''))
+		: null;
+	console.log(cleanJSONobj);
+
+	if (!cleanJSONobj) {
+		return <div>Loading...</div>; // Or any other loading indication you prefer
+	}
 
 	const {
 		recipe_name,
@@ -17,7 +25,7 @@ export default function FullView() {
 		approxCalories,
 		ingredients,
 		instructions
-	} = recipeData;
+	} = cleanJSONobj;
 
 	return (
 		<>
