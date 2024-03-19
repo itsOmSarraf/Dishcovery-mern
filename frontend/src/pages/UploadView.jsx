@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { CameraIcon, CookingPot, Eraser } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Switch } from '@/components/ui/switch';
 import {
 	Select,
@@ -27,6 +28,7 @@ import { useToast } from '@/components/ui/use-toast';
 import axios from 'axios';
 
 export default function UploadView() {
+	const navigate = useNavigate();
 	const form = useForm({
 		defaultValues: {
 			nonveg: false,
@@ -74,11 +76,12 @@ export default function UploadView() {
 
 				console.log(response.data);
 				setFileData(base64String);
-
+				localStorage.setItem('recipeData', JSON.stringify(response.data));
 				toast({
 					title: 'Upload successful',
 					description: 'Image has been successfully uploaded to Gemini.'
 				});
+				navigate('/fullview');
 			} catch (error) {
 				console.error('Error uploading image to Gemini:', error);
 
