@@ -6,17 +6,21 @@ const Recipe = new Schema(
 			type: String,
 			required: true
 		},
-		oneliner: {
+		nonVeg: {
+			type: String,
+			required: true
+		},
+		oneLiner: {
 			type: String,
 			required: true
 		},
 		imageUser: {
 			type: String,
-			required: true
+			required: false
 		},
 		imageHf: {
 			type: String,
-			required: true
+			required: false
 		},
 		approxTime: {
 			type: String,
@@ -38,14 +42,26 @@ const Recipe = new Schema(
 			type: String,
 			required: true
 		},
-		ingredients: {
-			type: { 'name:': String, 'quantity:': String },
-			required: true
-		},
-		directions: {
-			type: [String],
-			required: true
-		}
+		ingredients: [
+			{
+				name: {
+					type: String,
+					required: true
+				},
+				quantity: {
+					type: String,
+					required: true
+				}
+			}
+		],
+		directions: [
+			{
+				step: {
+					type: String,
+					required: true
+				}
+			}
+		]
 	},
 	{
 		timestamps: true

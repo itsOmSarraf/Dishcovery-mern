@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar';
+import Confirm from '@/components/Confim';
 import * as React from 'react';
 import { HeartIcon } from 'lucide-react';
 import { TimerIcon } from '@radix-ui/react-icons';
@@ -12,7 +12,7 @@ export default function FullView() {
 	const cleanJSONobj = recipeData
 		? JSON.parse(recipeData.replace(/```json\n|\n```/g, ''))
 		: null;
-	console.log(cleanJSONobj);
+	// console.log(cleanJSONobj);
 
 	if (!cleanJSONobj) {
 		return <div>Loading...</div>; // Or any other loading indication you prefer
@@ -24,12 +24,13 @@ export default function FullView() {
 		approxCookingTime,
 		approxCalories,
 		ingredients,
-		instructions
+		instructions,
+		serving
 	} = cleanJSONobj;
 
 	return (
 		<>
-			<Navbar />
+			<Confirm />
 			<div className='flex flex-col items-center py-5'>
 				<Card className='w-[350px] m-2'>
 					<CardHeader className='flex-row justify-between gap-2'>
@@ -49,6 +50,7 @@ export default function FullView() {
 								{approxCookingTime}
 							</Badge>
 							<Badge variant='secondary'>{approxCalories} Calories</Badge>
+							<Badge variant='secondary'>{serving}</Badge>
 						</div>
 						<div className='flex w-full justify-between'>
 							<IngredientsDrawer ingredients={ingredients} />

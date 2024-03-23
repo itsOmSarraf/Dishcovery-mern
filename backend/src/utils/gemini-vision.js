@@ -10,7 +10,7 @@ async function run(nonVeg, typeFood, timeFood, servings, imageData) {
 
 	const prompt = `suggest me a ${
 		nonVeg ? 'nonveg' : 'veg'
-	} recipe for ${typeFood} dish for ${timeFood} for ${servings} people with these ingredients in a json object format and keep the measuring terms in grams/kilograms, tablespoons literes/milliliters , the object format shall be { what_you_saw_in_the_image:"seperate with commas",recipe_name:"",oneLiner:"",approxCookingTime:"mins/hrs",approxCalroies:"",serving:"",ingredients:[{name:,quantity:},{name:,quantity:}],instructions:[{step:},{step:}]}`;
+	} recipe for ${typeFood} dish for ${timeFood} for ${servings} people with these ingredients in a json object format and keep the measuring terms in grams/kilograms, tablespoons literes/milliliters , the object format shall be { what_you_saw_in_the_image:"seperate with commas",recipeName:"",oneLiner:"",approxCookingTime:"mins/hrs",approxCalroies:"",serving:"",ingredients:[{name:,quantity:},{name:,quantity:}],instructions:[{step:},{step:}],nonVeg:${nonVeg},typeFood:${typeFood},timeFood:${timeFood}}`;
 
 	try {
 		const generativePart = await fileToGenerativePart(imageData, 'image/jpeg');
