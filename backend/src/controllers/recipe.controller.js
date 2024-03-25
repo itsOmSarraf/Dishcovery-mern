@@ -6,11 +6,10 @@ import { asyncHandler } from '../utils/asyncHandler.js';
 
 const recipeAll = asyncHandler(async (req, res) => {
 	const recipes = await Recipe.find({});
+	console.log(recipes);
 	return res
 		.status(200)
-		.json(
-			new ApiResponse(200, { recipes: recipes }, 'Hello World from recipes')
-		);
+		.json(new ApiResponse(200, { recipes: recipes }, 'All recipes are here'));
 });
 
 const recipeSolo = asyncHandler(async (req, res) => {
