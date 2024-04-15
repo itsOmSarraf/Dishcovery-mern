@@ -24,7 +24,7 @@ function AppRoutes() {
 				element={<Full />}
 			/>
 			<Route
-				path='/full/:foodid'
+				path='/recipes/full/:foodid'
 				element={<FullCustomView />}
 			/>
 			<Route

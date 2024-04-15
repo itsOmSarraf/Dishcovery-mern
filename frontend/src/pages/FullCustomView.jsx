@@ -35,9 +35,11 @@ export default function FullCustomView() {
 	}
 
 	const {
-		name: recipeName,
+		nonVeg,
+		recipeName,
+		timeFood,
 		oneLiner,
-		approxTime: approxCookingTime,
+		approxTime,
 		approxCalories,
 		ingredients,
 		directions, // Use directions instead of instructions
@@ -57,11 +59,11 @@ export default function FullCustomView() {
 				</CardHeader>
 				<CardContent>
 					<div className='mb-5'>
-						<Badge variant='secondary'>Veg</Badge>
-						<Badge variant='secondary'>Snacks</Badge>
+						<Badge variant='secondary'>{nonVeg ? 'Veg' : 'Nonveg'}</Badge>
+						<Badge variant='secondary'>{timeFood}</Badge>
 						<Badge variant='secondary'>
 							<TimerIcon className='h-2 w-2 mr-1' />
-							{approxCookingTime}
+							{approxTime}
 						</Badge>
 						<Badge variant='secondary'>{approxCalories} Calories</Badge>
 						<Badge variant='secondary'>{serving}</Badge>
@@ -77,8 +79,8 @@ export default function FullCustomView() {
 					</div>
 					<div className='text-center my-4'>Instructions:</div>
 					<ol className='list-decimal space-y-4 pl-9'>
-						{foodData.directions &&
-							foodData.directions.map((direction, index) => (
+						{directions &&
+							directions.map((direction, index) => (
 								<li key={index}>{direction.step}</li>
 							))}
 					</ol>

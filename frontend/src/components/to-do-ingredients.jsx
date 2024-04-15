@@ -9,18 +9,6 @@ import {
 	DrawerTrigger
 } from '@/components/ui/drawer';
 import { Button } from '@/components/ui/button';
-// const ingredients = [
-// 	{ id: 'potatoes', label: 'Potatoes (500 grams)' },
-// 	{ id: 'onion', label: 'Onion (100 grams)' },
-// 	{ id: 'poppy_seeds', label: 'Poppy Seeds (100 grams)' },
-// 	{ id: 'garlic', label: 'Garlic (2 cloves)' },
-// 	{ id: 'green_chilies', label: 'Green Chilies (2)' },
-// 	{ id: 'turmeric_powder', label: 'Turmeric Powder (1 teaspoon)' },
-// 	{ id: 'red_chili_powder', label: 'Red Chili Powder (1 teaspoon)' },
-// 	{ id: 'cumin_powder', label: 'Cumin Powder (1 teaspoon)' },
-// 	{ id: 'mustard_oil', label: 'Mustard Oil (2 tablespoons)' },
-// 	{ id: 'salt', label: 'Salt (to taste)' }
-// ];
 import { BookOpenText } from 'lucide-react';
 import { v4 } from 'uuid';
 
@@ -45,8 +33,10 @@ export function IngredientsDrawer({ ingredients }) {
 					</DrawerHeader>
 					<div className='p-4'>
 						<ul className='list-disc pl-4'>
-							{ingredients.map(({ id, label }) => (
-								<li key={myUuid}>{label}</li>
+							{ingredients.map(({ name, quantity }) => (
+								<li key={name}>
+									{name} ({quantity})
+								</li>
 							))}
 						</ul>
 					</div>
