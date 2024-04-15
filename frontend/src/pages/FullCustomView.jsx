@@ -67,7 +67,7 @@ export default function FullCustomView() {
 							{approxTime}
 						</Badge>
 						<Badge variant='secondary'>{approxCalories} Calories</Badge>
-						<Badge variant='secondary'>{serving}</Badge>
+						<Badge variant='secondary'>{serving} serving(s)</Badge>
 					</div>
 					<div className='flex w-full justify-between'>
 						<IngredientsDrawer ingredients={ingredients} />
