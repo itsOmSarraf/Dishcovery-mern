@@ -19,7 +19,9 @@ export default function FullView() {
 	}
 
 	const {
+		nonVeg,
 		recipeName,
+		timeFood,
 		oneLiner,
 		approxCookingTime,
 		approxCalories,
@@ -44,8 +46,8 @@ export default function FullView() {
 					</CardHeader>
 					<CardContent>
 						<div className='mb-5'>
-							<Badge variant='secondary'>Veg</Badge>
-							<Badge variant='secondary'>Snacks</Badge>
+							<Badge variant='secondary'>{nonVeg ? 'Veg' : 'Nonveg'}</Badge>
+							<Badge variant='secondary'>{timeFood}</Badge>
 							<Badge variant='secondary'>
 								<TimerIcon className='h-2 w-2 mr-1' />
 								{approxCookingTime}
