@@ -19,7 +19,7 @@ function AppRoutes() {
 				element={<Home />}
 			/>
 			<Route
-				path='/full'
+				path='/full/:foodid'
 				element={<Full />}
 			/>
 			<Route

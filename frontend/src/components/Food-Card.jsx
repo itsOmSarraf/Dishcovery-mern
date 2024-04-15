@@ -29,13 +29,7 @@ export function CardWithForm({ food }) {
 						<CardTitle className='mb-2'>{food.name}</CardTitle>
 						<CardDescription>{food.oneLiner}</CardDescription>
 					</div>
-					<div className='flex-shrink-0'>
-						{/* <img
-							src={image} // Assuming you have an image URL stored somewhere
-							alt='recipe'
-							className='rounded-md w-[100px] h-[100px] md:w-auto'
-						/> */}
-					</div>
+					<div className='flex-shrink-0'></div>
 				</div>
 			</CardHeader>
 			<CardContent>
