@@ -39,6 +39,7 @@ export default function FullView() {
 								<div className='text-2xl mb-2'>{recipeName}</div>
 								<p>{oneLiner}</p>
 							</div>
+							<img src='https://via.placeholder.com/150' />
 						</div>
 					</CardHeader>
 					<CardContent>

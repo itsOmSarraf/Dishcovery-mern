@@ -55,6 +55,7 @@ export default function FullCustomView() {
 							<div className='text-2xl mb-2 font-bold'>{name}</div>
 							<p>{oneLiner}</p>
 						</div>
+						<img src='https://via.placeholder.com/150' />
 					</div>
 				</CardHeader>
 				<CardContent>

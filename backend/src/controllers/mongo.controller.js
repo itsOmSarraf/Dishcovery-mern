@@ -18,7 +18,8 @@ const uploadToDb = asyncHandler(async (req, res) => {
 		serving,
 		nonVeg,
 		typeFood,
-		timeFood
+		timeFood,
+		imageData
 	} = recipeData;
 	try {
 		const newRecipe = await recipeModel.create({
