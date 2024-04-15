@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { IngredientsDrawer } from '@/components/to-do-ingredients';
+import Navbar from '@/components/Navbar';
 
 export default function FullView() {
 	const recipeData = localStorage.getItem('recipeData');
@@ -32,6 +33,7 @@ export default function FullView() {
 
 	return (
 		<>
+			<Navbar />
 			<Confirm />
 			<div className='flex flex-col items-center py-5'>
 				<Card className='w-[350px] m-2'>

@@ -7,6 +7,7 @@ import { IngredientsDrawer } from '@/components/to-do-ingredients';
 import { Button } from '@/components/ui/button';
 import { HeartIcon } from 'lucide-react';
 import { TimerIcon } from '@radix-ui/react-icons';
+import Navbar from '@/components/Navbar';
 
 export default function FullCustomView() {
 	const { foodid } = useParams();
@@ -47,46 +48,49 @@ export default function FullCustomView() {
 	} = foodData;
 
 	return (
-		<div className='flex flex-col items-center py-5'>
-			<Card className='w-[350px] m-2'>
-				<CardHeader className='flex-row justify-between gap-2'>
-					<div className='flex flex-row md:flex-row gap-4 items-center md:items-start'>
-						<div className='flex-1'>
-							<div className='text-2xl mb-2 font-bold'>{name}</div>
-							<p>{oneLiner}</p>
+		<>
+			<Navbar />
+			<div className='flex flex-col items-center py-5'>
+				<Card className='w-[350px] m-2'>
+					<CardHeader className='flex-row justify-between gap-2'>
+						<div className='flex flex-row md:flex-row gap-4 items-center md:items-start'>
+							<div className='flex-1'>
+								<div className='text-2xl mb-2 font-bold'>{name}</div>
+								<p>{oneLiner}</p>
+							</div>
+							<img src='https://via.placeholder.com/150' />
 						</div>
-						<img src='https://via.placeholder.com/150' />
-					</div>
-				</CardHeader>
-				<CardContent>
-					<div className='mb-5'>
-						<Badge variant='secondary'>{nonVeg ? 'Veg' : 'Nonveg'}</Badge>
-						<Badge variant='secondary'>{timeFood}</Badge>
-						<Badge variant='secondary'>
-							<TimerIcon className='h-2 w-2 mr-1' />
-							{approxTime}
-						</Badge>
-						<Badge variant='secondary'>{approxCalories} Calories</Badge>
-						<Badge variant='secondary'>{serving} serving(s)</Badge>
-					</div>
-					<div className='flex w-full justify-between'>
-						<IngredientsDrawer ingredients={ingredients} />
-						<Button
-							variant='outline'
-							className='bg-red-500 text-white'>
-							Like
-							<HeartIcon className='ml-2 h-4 w-4' />
-						</Button>
-					</div>
-					<div className='text-center my-4'>Instructions:</div>
-					<ol className='list-decimal space-y-4 pl-9'>
-						{directions &&
-							directions.map((direction, index) => (
-								<li key={index}>{direction.step}</li>
-							))}
-					</ol>
-				</CardContent>
-			</Card>
-		</div>
+					</CardHeader>
+					<CardContent>
+						<div className='mb-5'>
+							<Badge variant='secondary'>{nonVeg ? 'Veg' : 'Nonveg'}</Badge>
+							<Badge variant='secondary'>{timeFood}</Badge>
+							<Badge variant='secondary'>
+								<TimerIcon className='h-2 w-2 mr-1' />
+								{approxTime}
+							</Badge>
+							<Badge variant='secondary'>{approxCalories} Calories</Badge>
+							<Badge variant='secondary'>{serving} serving(s)</Badge>
+						</div>
+						<div className='flex w-full justify-between'>
+							<IngredientsDrawer ingredients={ingredients} />
+							<Button
+								variant='outline'
+								className='bg-red-500 text-white'>
+								Like
+								<HeartIcon className='ml-2 h-4 w-4' />
+							</Button>
+						</div>
+						<div className='text-center my-4'>Instructions:</div>
+						<ol className='list-decimal space-y-4 pl-9'>
+							{directions &&
+								directions.map((direction, index) => (
+									<li key={index}>{direction.step}</li>
+								))}
+						</ol>
+					</CardContent>
+				</Card>
+			</div>
+		</>
 	);
 }
