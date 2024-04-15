@@ -10,7 +10,7 @@ export default function SplashScreen() {
 				<img
 					src={logo}
 					alt='logo of Dishcovery, a mobile app that helps users discover new recipes using AI to visually identify food ingredients'
-					className='w-full h-full object-cover'
+					className='w-full h-full'
 				/>
 			</div>
 			<Button
