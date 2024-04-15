@@ -6,6 +6,7 @@ import SplashScreen from './pages/Splashscreen';
 import Home from './pages/Home';
 import Full from './pages/FullView';
 import UploadView from './pages/UploadView';
+import FullCustomView from './pages/FullCustomView';
 
 function AppRoutes() {
 	return (
@@ -19,8 +20,12 @@ function AppRoutes() {
 				element={<Home />}
 			/>
 			<Route
-				path='/full/:foodid'
+				path='/full/'
 				element={<Full />}
+			/>
+			<Route
+				path='/full/:foodid'
+				element={<FullCustomView />}
 			/>
 			<Route
 				path='/upload'

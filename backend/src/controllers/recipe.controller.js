@@ -18,8 +18,7 @@ const recipeSolo = asyncHandler(async (req, res) => {
 	return res
 		.status(200)
 		.json(
-			new ApiResponse(200, { recipe: recipe }),
-			'Here is the dish you wanted'
+			new ApiResponse(200, { recipe: recipe }, 'Here is the dish you wanted')
 		);
 });
 

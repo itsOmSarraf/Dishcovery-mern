@@ -12,7 +12,7 @@ export default function Navbar() {
 						className='ml-2 w-10 h-10 rounded-full mr-1'
 					/>
 					<NavLink
-						to='/home'
+						to='/'
 						className='text-2xl font-bold ml-2'>
 						DishCovery
 					</NavLink>

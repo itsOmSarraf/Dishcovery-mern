@@ -4,6 +4,6 @@ import { recipeSolo } from '../controllers/recipe.controller.js';
 const router = Router();
 
 router.route('/all').get(recipeAll);
-router.route('full/:foodid').get(recipeSolo);
+router.route('/full/:foodid').get(recipeSolo);
 
 export default router;
