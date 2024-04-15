@@ -20,13 +20,14 @@ function AppRoutes() {
 				element={<Home />}
 			/>
 			<Route
+				path='/full/:foodid'
+				element={<FullCustomView />}
+			/>
+			<Route
 				path='/full/'
 				element={<Full />}
 			/>
-			<Route
-				path='/recipes/full/:foodid'
-				element={<FullCustomView />}
-			/>
+
 			<Route
 				path='/upload'
 				element={<UploadView />}

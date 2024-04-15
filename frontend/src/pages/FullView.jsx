@@ -19,7 +19,7 @@ export default function FullView() {
 	}
 
 	const {
-		recipe_name,
+		recipeName,
 		oneLiner,
 		approxCookingTime,
 		approxCalories,
@@ -36,7 +36,7 @@ export default function FullView() {
 					<CardHeader className='flex-row justify-between gap-2'>
 						<div className='flex flex-row md:flex-row gap-4 items-center md:items-start'>
 							<div className='flex-1'>
-								<div className='text-2xl mb-2'>{recipe_name}</div>
+								<div className='text-2xl mb-2'>{recipeName}</div>
 								<p>{oneLiner}</p>
 							</div>
 						</div>

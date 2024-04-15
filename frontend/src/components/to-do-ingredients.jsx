@@ -10,9 +10,9 @@ import {
 } from '@/components/ui/drawer';
 import { Button } from '@/components/ui/button';
 import { BookOpenText } from 'lucide-react';
-import { v4 } from 'uuid';
+// import { v4 } from 'uuid';
 
-const myUuid = v4();
+// const myUuid = v4();
 
 export function IngredientsDrawer({ ingredients }) {
 	return (

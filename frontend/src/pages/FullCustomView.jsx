@@ -35,8 +35,8 @@ export default function FullCustomView() {
 	}
 
 	const {
+		name,
 		nonVeg,
-		recipeName,
 		timeFood,
 		oneLiner,
 		approxTime,
@@ -52,7 +52,7 @@ export default function FullCustomView() {
 				<CardHeader className='flex-row justify-between gap-2'>
 					<div className='flex flex-row md:flex-row gap-4 items-center md:items-start'>
 						<div className='flex-1'>
-							<div className='text-2xl mb-2 font-bold'>{recipeName}</div>
+							<div className='text-2xl mb-2 font-bold'>{name}</div>
 							<p>{oneLiner}</p>
 						</div>
 					</div>

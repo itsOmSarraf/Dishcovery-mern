@@ -195,6 +195,9 @@ export default function UploadView() {
 													</SelectItem>
 													<SelectItem value='thai'>Thai</SelectItem>
 													<SelectItem value='french'>French</SelectItem>
+													<SelectItem value='continental'>
+														Continental
+													</SelectItem>
 												</SelectGroup>
 											</SelectContent>
 										</Select>
