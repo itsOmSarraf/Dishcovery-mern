@@ -59,12 +59,12 @@ export default function FullView() {
 						</div>
 						<div className='flex w-full justify-between'>
 							<IngredientsDrawer ingredients={ingredients} />
-							<Button
+							{/* <Button
 								variant='outline'
 								className='bg-red-500 text-white'>
 								Like
 								<HeartIcon className='ml-2 h-4 w-4' />
-							</Button>
+							</Button> */}
 						</div>
 						<div class='text-center my-4'>Instructions:</div>
 						<ol class='list-decimal space-y-4 pl-9'>

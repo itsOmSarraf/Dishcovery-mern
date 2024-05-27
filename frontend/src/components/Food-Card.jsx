@@ -29,6 +29,11 @@ export function CardWithForm({ food }) {
 						<CardTitle className='mb-2'>{food.name}</CardTitle>
 						<CardDescription>{food.oneLiner}</CardDescription>
 					</div>
+					<img
+						src='https://via.placeholder.com/100'
+						alt='food'
+						// className='w-24 h-24'
+					/>
 					<div className='flex-shrink-0'></div>
 				</div>
 			</CardHeader>
@@ -41,13 +46,13 @@ export function CardWithForm({ food }) {
 				<Badge variant='secondary'>{food.typeFood}</Badge>
 				<Badge variant='secondary'>{food.serving}</Badge>
 				<Badge variant='secondary'>{food.timeFood}</Badge>
-				<Badge variant='secondary'>{food.approxCalories}</Badge>
+				<Badge variant='secondary'>{food.approxCalories} cals</Badge>
 			</CardContent>
 			<CardFooter className='flex justify-between'>
-				<Button variant='outline'>
+				{/* <Button variant='outline'>
 					Like
 					<HeartIcon className='ml-2 h-4 w-4' />
-				</Button>
+				</Button> */}
 				<Button onClick={handleViewDetails}>
 					<NavLink to={`/full/${food._id}`}>View</NavLink>
 					<CookingPot className='ml-2 h-4 w-4' />
